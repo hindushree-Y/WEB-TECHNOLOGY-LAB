@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: rgb(211, 239, 238);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background: rgb(117, 117, 172);
+            width: 100px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background: rgb(102, 102, 173);
+        }
+        .button{
+            margin-left: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .cal {
+            /* height: 900px; */
+            background-color: rgb(252, 190, 75);
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="cal">
+        <h3 style="color: darkolivegreen;">Name : HINDU SHREE.Y | USN : 1BI24CS076</h3>
+        <h2>Simple Calculator</h2>
+        <input id="a" type="number" placeholder="First number">
+        <input id="b" type="number" placeholder="Second number">
+        <br>
+        <div class="button">
+            <button onclick="cal('+')">Sum</button>
+            <button onclick="cal('-')">Difference</button>
+            <button onclick="cal('*')">Product</button>
+            <button onclick="cal('/')">Quotient</button>
+            <button onclick="cal('%')">Remainder</button>
+            <button onclick="cal('**')">Power</button>
+            <button onclick="cal('sqrt')">Square Root</button>
+            <button onclick="cal('square')">Square</button>
+        </div>
+        <p id="result">Result:</p>
+    </div>
+    <script>
+        function cal(op) {
+            var a = +document.getElementById("a").value;
+            var b = +document.getElementById("b").value;
+            var r;
+            switch (op) {
+                case '+': r = a + b; break;
+                case '-': r = a - b; break;
+                case '*': r = a * b; break;
+                case '/': r = b == 0 ? "Cannot divide by zero" : a / b; break;
+                case '%': r = b == 0 ? "Cannot divide by zero" : a % b; break;
+                case '**': r = a ** b; break;
+                case 'sqrt': r = a < 0 ? "Invalid input" : Math.sqrt(a); break;
+                case 'square': r = a * a; break;
+            }
+
+            document.getElementById("result").innerHTML = "Result: " + r;
+        }
+    </script>
+</body>
+
+</html>
